@@ -1,5 +1,6 @@
 # readyscan
 
+[![npm](https://img.shields.io/npm/v/readyscan.svg)](https://www.npmjs.com/package/readyscan)
 [![CI](https://github.com/BlueDevLabs/readyscan/actions/workflows/ci.yml/badge.svg)](https://github.com/BlueDevLabs/readyscan/actions/workflows/ci.yml)
 ![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)
 ![Node](https://img.shields.io/badge/node-%3E%3D20-brightgreen.svg)
@@ -19,16 +20,14 @@ One request path, a readable report, an optional JSON mode, and a `--fail-on` sw
 Run it without installing (needs Node 20+):
 
 ```bash
-npx github:BlueDevLabs/readyscan all example.com
+npx readyscan all example.com
 ```
 
-Or clone and build:
+Or install it:
 
 ```bash
-git clone https://github.com/BlueDevLabs/readyscan.git
-cd readyscan
-npm install        # also builds via the prepare script
-node dist/src/cli.js all example.com
+npm install -g readyscan
+readyscan all example.com
 ```
 
 ## Usage
@@ -134,7 +133,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 20
-      - run: npx github:BlueDevLabs/readyscan headers https://example.com --fail-on medium
+      - run: npx readyscan headers https://example.com --fail-on medium
 ```
 
 Exit codes: `0` clean (or `--fail-on` not set), `1` bad usage / network error, `2` findings met the `--fail-on` threshold.
